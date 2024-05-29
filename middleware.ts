@@ -6,9 +6,9 @@ export default clerkMiddleware({
         '/events/:id',
         '/api/webhook/clerk',
         '/api/webhook/stripe',
-        '/api/uploadthing',
-    ],
-    ignoreRoutes: [
+        '/api/uploadthing'
+      ],
+    ignoredRoutes: [
         '/api/webhook/clerk',
         '/api/webhook/stripe',
         '/api/uploadthing'
