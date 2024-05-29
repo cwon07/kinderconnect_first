@@ -6,7 +6,9 @@ import {
     SheetTitle,
     SheetTrigger,
   } from "@/components/ui/sheet"
+import { Separator } from "@/components/ui/separator"
 import Image from "next/image"
+import NavItems from "./NavItems"
   
 
 const MobileNav = () => {
@@ -27,12 +29,8 @@ const MobileNav = () => {
                     alt='logo'
                     width={128}
                     height={38} />
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                    This action cannot be undone. This will permanently delete your account
-                    and remove your data from our servers.
-                </SheetDescription>
-             
+                <Separator className="border border-grey-50"/>
+                <NavItems />            
             </SheetContent>
         </Sheet>
     </nav>
