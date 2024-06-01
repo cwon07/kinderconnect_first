@@ -2,18 +2,19 @@
 
 import { revalidatePath } from "next/cache"
 
-import { CreateUserParams, UpdateUserParams } from "@/types"
-import { handleError } from "@/lib/utils"
 import { connectToDatabase } from "@/lib/database"
 import User from "@/lib/database/models/user.model"
 import Order from "@/lib/database/models/order.model"
 import Event from "@/lib/database/models/event.model"
+import { handleError } from "@/lib/utils"
 
-export const createUser = async (user: CreateUserParams) => {
+import { CreateUserParams, UpdateUserParams } from "@/types"
+
+export async function createUser(user: CreateUserParams) {
     try {
         await connectToDatabase();
-        const newUser = await User.create(user);
 
+        const newUser = await User.create(user);
         return JSON.parse(JSON.stringify(newUser));
     } catch (error) {
         handleError(error)
@@ -37,11 +38,11 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
     try {
         await connectToDatabase()
 
-        const updateUser = await User.findOneAndUpdate({ clerkId }, user, { new: true })
+        const updatedUser = await User.findOneAndUpdate({ clerkId }, user, { new: true })
 
-        if (!updateUser) throw new Error('User update failed')
-        return JSON.parse(JSON.stringify(updateUser))
-    }catch (error) {
+        if (!updatedUser) throw new Error('User update failed')
+        return JSON.parse(JSON.stringify(updatedUser))
+    } catch (error) {
         handleError(error)
     }
 }
