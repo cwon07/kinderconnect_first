@@ -88,9 +88,9 @@ export async function POST(req: Request) {
       photo: image_url
     }
     
-    const updatedUser = await updateUser(id, user)
+    const updateUser = await updateUser(id, user)
 
-    return NextResponse.json({ message: 'OK', user: updatedUser })
+    return NextResponse.json({ message: 'OK', user: updateUser })
 }
 
 if (eventType === 'user.deleted') {
