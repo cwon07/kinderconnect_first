@@ -292,6 +292,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                   )}
                 />
               </div>
+              
             </FormControl>
           <FormMessage />
         </FormItem>          
