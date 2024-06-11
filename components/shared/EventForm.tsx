@@ -20,7 +20,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useRouter } from "next/navigation"
 import { createEvent, updateEvent } from "@/lib/actions/event.actions"
 import { IEvent } from "@/lib/database/models/event.model"
-import { Checkbox } from "@radix-ui/react-checkbox"
+import { Checkbox } from "../ui/checkbox"
  
 type EventFormProps = {
   userId: string
@@ -292,7 +292,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                   )}
                 />
               </div>
-              
+
             </FormControl>
           <FormMessage />
         </FormItem>          
