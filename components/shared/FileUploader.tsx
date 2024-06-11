@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { useDropzone } from "@uploadthing/react";
 import { generateClientDropzoneAccept } from "uploadthing/client"
-import { FileWithPath } from '@uploadthing/react'
+import { FileWithPath } from 'react-dropzone'
 import { convertFileToUrl } from "@/lib/utils";
 import { Button } from "../ui/button";
 
