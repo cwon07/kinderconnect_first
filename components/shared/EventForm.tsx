@@ -287,12 +287,14 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                            id="isFree" className="mr-2 h-5 w-5 border-2 border-primary-500" />
                         </div>
                       </FormControl>
+                    <FormMessage />
                     </FormItem>
                   )}
                 />
               </div>
             </FormControl>
-          </FormItem>
+          <FormMessage />
+        </FormItem>          
         )}
       />
 
@@ -311,7 +313,9 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
               />
               <Input placeholder="URL" {...field} className="input-field" />
             </div>
+
           </FormControl>
+          <FormMessage />
         </FormItem>
        )}
       />
