@@ -6,7 +6,7 @@ import Category from "../database/models/category.model"
 import { CreateEventParams, DeleteEventParams, GetAllEventsParams, GetEventsByUserParams, GetRelatedEventsByCategoryParams, UpdateEventParams } from "@/types"
 import { connectToDatabase } from "../database"
 import { revalidatePath } from "next/cache"
-import { handleError } from "../utils"
+import { handleError } from "@/lib/utils"
 
 
 const getCategoryByName = async (name: string) => {
