@@ -50,6 +50,7 @@ export async function POST(req: Request) {
     })
   }
  
+  // Get the ID and type
   const { id } = evt.data;
   const eventType = evt.type;
  
@@ -66,7 +67,6 @@ export async function POST(req: Request) {
     }
 
     const newUser = await createUser(user);
-
 
     if(newUser) {
       await clerkClient.users.updateUserMetadata(id, {
@@ -95,7 +95,7 @@ export async function POST(req: Request) {
   }
 
   if (eventType === 'user.deleted') {
-    // const { id }  = evt.data
+    const { id } = evt.data
 
     const deletedUser = await deleteUser(id!)
 
