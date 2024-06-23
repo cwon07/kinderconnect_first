@@ -21,7 +21,7 @@ const getCategoryByName = async (name: string) => {
   return Category.findOne({ name: { $regex: name, $options: 'i' } })
 }
 
-const populateEvent = (query: any) => {
+const populateEvent = async (query: any) => {
   return query
     .populate({ path: 'organizer', model: User, select: '_id firstName lastName' })
     .populate({ path: 'category', model: Category, select: '_id name' })
