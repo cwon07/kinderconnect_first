@@ -1,6 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose, { Mongoose } from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI!;
+
+interface MongooseConn {
+  conn: Mongoose | null;
+  promise: Promise<Mongoose> | null;
+}
 
 let cached = (global as any).mongoose || { conn: null, promise: null };
 
@@ -12,7 +17,8 @@ export const connectToDatabase = async () => {
   cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
     dbName: 'kinderconnect',
     bufferCommands: false,
-  })
+    connectTimeoutMS: 30000,
+  });
 
   cached.conn = await cached.promise;
 
